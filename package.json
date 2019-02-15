@@ -1,0 +1,16 @@
+{
+  "name": "lunch_crunch_app",
+  "version": "1.0.0",
+  "description": "lunch expense tracker",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason, Tristan, Alom",
+  "license": "ISC"
+}
