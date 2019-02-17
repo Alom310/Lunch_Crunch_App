@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 var db = require('./models')
+// serve static files in public
 
 
 
