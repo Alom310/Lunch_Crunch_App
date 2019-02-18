@@ -1,5 +1,6 @@
 * {
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 /* ------------
@@ -53,9 +54,63 @@ Stats
 /* ------------
 Login
 ------------- */
+form{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    height:400px;
+    background: -moz-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(156,255,248,1)), color-stop(100%, rgba(255,0,255,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* ie10+ */
+    background: linear-gradient(188deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9CFFF8', endColorstr='#ff00ff',GradientType=0 ); /* ie6-9 */
+    
+}
+.formbox {
+    display:flex;
+    justify-content: center;
+}
+input {
+    width:100%;
+    border-radius: 4px;
+}
+form button {
+    border-radius:4px;
+    margin-top:10px;
+    background-color: transparent;
+    transition: transform 1s;
+
+}
+form button:hover {
+    transform: scale(1.2);
+    background-color:teal; 
+}
+form h3 {
+    font-size:12px;
+    padding-top:10px;
+}
+
 /* ------------
 Footer
 ------------- */
+#foot {
+    height:50px;
+    background: -moz-linear-gradient(93deg, rgba(0,0,0,1) 31%, rgba(14,0,14,1) 35%, rgba(255,0,255,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,0,255,1)), color-stop(65%, rgba(14,0,14,1)), color-stop(69%, rgba(0,0,0,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(93deg, rgba(0,0,0,1) 31%, rgba(14,0,14,1) 35%, rgba(255,0,255,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(93deg, rgba(0,0,0,1) 31%, rgba(14,0,14,1) 35%, rgba(255,0,255,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(93deg, rgba(0,0,0,1) 31%, rgba(14,0,14,1) 35%, rgba(255,0,255,1) 100%); /* ie10+ */
+    background: linear-gradient(357deg, rgba(0,0,0,1) 31%, rgba(14,0,14,1) 35%, rgba(255,0,255,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff00ff', endColorstr='#000000',GradientType=0 ); /* ie6-9 */
+    text-align:center;
+}
+#foot h3 {
+    font-size:10px;
+    color:silver;
+    padding-top:15px;
+}
 /* ------------
 Media Query
 ------------- */
