@@ -67,15 +67,19 @@ const dummyMeals =
 
 //reset seed data
 db.User.deleteMany({}, (err) => {
-    console.log('removed all users!');
     if (err) return console.log(err);
+    console.log('removed all users!');
+    
     // make a dummyUser
     db.User.create(dummyUser, (err,newUser) => {
         if (err) return console.log(err);
+        
+        //embedding dummyMeals
+        dummyMeals.forEach( meal => {
+            newUser.meals.push(meal);
+        })
         console.log(newUser);
     });
-    //add dummyMeals to dummyUser
- 
 });
 
 
