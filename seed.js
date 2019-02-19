@@ -81,10 +81,19 @@ db.User.deleteMany({}, (err) => {
                 if (err) return console.log(err);
             })
         })
+<<<<<<< HEAD
         newUser.save();
+||||||| merged common ancestors
+=======
+<<<<<<< HEAD
+    })
+});
+=======
+>>>>>>> 9a856255c55124bc01bf3c5652bcbeda0eb4e0d1
         console.log(newUser);
     });
 });
 
 
 
+>>>>>>> cbdfb3f5a0302692b9a5c9eff712139244b3e004
