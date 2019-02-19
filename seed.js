@@ -78,14 +78,5 @@ db.User.deleteMany({}, (err) => {
         dummyMeals.forEach( meal => {
             newUser.meals.push(meal);
         })
-<<<<<<< HEAD
     })
 });
-=======
-        console.log(newUser);
-    });
-});
-
-
-
->>>>>>> cbdfb3f5a0302692b9a5c9eff712139244b3e004

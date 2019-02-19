@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// const Meal = require('./meal');
+const Meal = require('./meal');
 
 const UserSchema = new Schema({
     username: String,
