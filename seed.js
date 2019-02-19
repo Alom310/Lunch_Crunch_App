@@ -95,6 +95,3 @@ db.User.deleteMany({}, (err,Users) => {
         })
     })
 });
-
-
-

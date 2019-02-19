@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-var db = require('./models')
+const db = require('./models')
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,23 +30,45 @@ app.get('/api/user', (req,res) => {
 });
 
 ////////////get ONE user
-app.get('/api/user/:id', function (req, res) {
+app.get('/api/user/:username', function (req, res) {
     console.log('Found User', req.params);
-    db.User.findOne({_id: req.params.id},(err, data)=>{
+    var username = req.body.username;
+    var password = req.body.password;
+    db.User.findOne({username: username, password: password},(err, data)=>{
       if(err){
-        console.log("User Not Found");
+        console.log("User login Not Found");
       }
       res.json(data);
     })
   });
 
+//////////login
+// app.get('/user',function(req,res){
+//   var username = req.body.username;
+//   var password = req.body.password;
+
+//   User.findOne({username: username, password: password}), function (err, user) {
+//     if(err) {
+//       console.log(err);
+//       return res.status(500).send()
+//     }
+//     if(!user){
+//       return res.status(404).send();
+//     }
+//     return res.status(200).send();
+//   }
+// })
+
 ///////////create user
 app.post('/api/user', function (req, res) {
   var newUser = new db.User({
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email,
     name: req.body.name,
     budget: req.body.budget,
     streak: req.body.streak,
-    // image: req.body.image,
+    image: req.body.image,
     // meals: [Meal.schema]
   })
     newUser.save(function(err) {
@@ -63,8 +85,10 @@ app.delete('/api/user/:id', function (req, res) {
   const userId = req.params.id;
   db.User.findOneAndDelete({_id: userId},(err, deletedBook) => {
       res.json(deletedBook);
+  });
 });
-});
+
+
 
 
 
