@@ -73,23 +73,16 @@ db.User.deleteMany({}, (err,Users) => {
     db.User.create(dummyUser, (err,newUser) => {
         if (err) return console.log(err);
             //add dummyMeals to dummyUser
-        dummyMeals.forEach( meal => {
-            db.Meal.create(meal, (err,newMeal) => {
-                if (err) return console.log(err);
-
-                newMeal.save( (err, savedMeal) => {
-                    if (err) return console.log(err);
-                    console.log(savedMeal)
-                })
-                newUser.meals.push(newMeal);
-                newUser.save((err, savedUser) => {
-                    if (err) return console.log(err);
-                    console.log(savedUser);
-                })
-            })
-        });
+        dummyMeals.forEach((mealData) => {
+            let meal = new db.Meal({
+                name: mealData.name,
+                date: now,
+                Price: mealData.Price,
+                location: mealData.location,
+                image: ''
+            });
+            newUser.meals.push(meal)
+        })
+        console.log(newUser);
     });
 });
-
-
-
