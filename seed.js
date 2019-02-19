@@ -72,28 +72,23 @@ db.User.deleteMany({}, (err,Users) => {
     // make a dummyUser
     db.User.create(dummyUser, (err,newUser) => {
         if (err) return console.log(err);
-        console.log(newUser);
-    });
+            //add dummyMeals to dummyUser
+        dummyMeals.forEach( meal => {
+            db.Meal.create(meal, (err,newMeal) => {
+                if (err) return console.log(err);
 
-    //add dummyMeals to dummyUser
-    db.User.findOne({name: "User"}, (err, foundUser) => {
-        if(err) return console.log(err);
-        
-        dummyMeals.forEach( mealData => {
-            let meal = new db.Meal({
-                name: mealData.name,
-                date: now,
-                Price: mealData.price,
-                location: mealData.location,
-                image: mealData.image
-            });
-            meal.save( (err,savedMeal) => {
-                if (err) return console.log;
-                
-                console.log(`saved ${savedMeal}`)
+                newMeal.save( (err, savedMeal) => {
+                    if (err) return console.log(err);
+                    console.log(savedMeal)
+                })
+                newUser.meals.push(newMeal);
+                newUser.save((err, savedUser) => {
+                    if (err) return console.log(err);
+                    console.log(savedUser);
+                })
             })
-        })
-    })
+        });
+    });
 });
 
 
