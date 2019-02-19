@@ -2,17 +2,7 @@
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
-.js div#preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
-  }
-  
+
 /* ------------
 Navbar
 ------------- */
@@ -27,84 +17,16 @@ Navbar
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ad1283', endColorstr='#cb60b3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .navbar-toggler-icon{
-    background-image: url("img/burger.png");
+    background-image: url("../images/burger.png");
   }
 /* ------------
-Header
+Transactions
 ------------- */
-header {
-    background-image: url("../images/lcheaderr.jpg");
-    height: 600px;
+#transactions {
+    background-image: url('../images/dashbg.jpg');
     background-size: cover;
-    color:#F2F1F1;
-
+    height:800px;
 }
-header img {
-    max-width: 500px;
-    max-height:600px;
-    float:right;
-}
-.row1 {
-    display: flex;
-    flex-flow: wrap;
-    padding:80px 0 10px 100px;
-}
-.btn {
-    height:40px;
-    margin-left:5px;
-}
-/* ------------
-Stats
-------------- */
-
-#stats {
-    margin: 90px 50px;
-}
-#stats img {
-    max-height:350px;
-    max-width: 350px;
-}
-/* ------------
-Login
-------------- */
-form{
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    height:400px;
-    background: -moz-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* ff3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(156,255,248,1)), color-stop(100%, rgba(255,0,255,1))); /* safari4+,chrome */
-    background: -webkit-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(262deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* ie10+ */
-    background: linear-gradient(188deg, rgba(156,255,248,1) 0%, rgba(255,0,255,1) 100%); /* w3c */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9CFFF8', endColorstr='#ff00ff',GradientType=0 ); /* ie6-9 */
-    
-}
-.formbox {
-    display:flex;
-    justify-content: center;
-}
-input {
-    width:100%;
-    border-radius: 4px;
-}
-form button {
-    border-radius:4px;
-    margin-top:10px;
-    background-color: transparent;
-    transition: transform 1s;
-
-}
-form button:hover {
-    transform: scale(1.2);
-    background-color:teal; 
-}
-form h3 {
-    font-size:12px;
-    padding-top:10px;
-}
-
 /* ------------
 Footer
 ------------- */

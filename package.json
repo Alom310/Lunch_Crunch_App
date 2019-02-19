@@ -6,7 +6,12 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+<<<<<<< HEAD
     "mongoose": "^5.4.14"
+=======
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.13"
+>>>>>>> 0cfd7de4e5636e1844792129437b64ac07d7f15f
   },
   "devDependencies": {},
   "scripts": {
