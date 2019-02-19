@@ -10,7 +10,7 @@ const UserSchema = new Schema({
     budget: Number,
     streak: Number,
     image: String,
-    // meals: [Meal.schema]
+    meals: [Meal.schema]
 });
 
 const User = mongoose.model('User', UserSchema);

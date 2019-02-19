@@ -66,23 +66,17 @@ const dummyMeals =
 ];
 
 //reset seed data
-db.User.deleteMany({}, (err,Users) => {
+db.User.deleteMany({}, (err) => {
     console.log('removed all users!');
     if (err) return console.log(err);
     // make a dummyUser
     db.User.create(dummyUser, (err,newUser) => {
         if (err) return console.log(err);
-            //add dummyMeals to dummyUser
-        dummyMeals.forEach((mealData) => {
-            let meal = new db.Meal({
-                name: mealData.name,
-                date: now,
-                Price: mealData.Price,
-                location: mealData.location,
-                image: ''
-            });
-            newUser.meals.push(meal)
-        })
         console.log(newUser);
     });
+    //add dummyMeals to dummyUser
+ 
 });
+
+
+
