@@ -66,32 +66,26 @@ const dummyMeals =
 ];
 
 //reset seed data
-db.User.deleteMany({}, (err,Users) => {
-    console.log('removed all users!');
+db.User.deleteMany({}, (err) => {
     if (err) return console.log(err);
+    console.log('removed all users!');
+    
     // make a dummyUser
     db.User.create(dummyUser, (err,newUser) => {
         if (err) return console.log(err);
-        console.log(newUser);
-    });
-
-    //add dummyMeals to dummyUser
-    db.User.findOne({name: "User"}, (err, foundUser) => {
-        if(err) return console.log(err);
         
-        dummyMeals.forEach( mealData => {
-            let meal = new db.Meal({
-                name: mealData.name,
-                date: now,
-                Price: mealData.price,
-                location: mealData.location,
-                image: mealData.image
-            });
-            meal.save( (err,savedMeal) => {
-                if (err) return console.log;
-                
-                console.log(`saved ${savedMeal}`)
-            })
+        //embedding dummyMeals
+        dummyMeals.forEach( meal => {
+            newUser.meals.push(meal);
         })
+<<<<<<< HEAD
     })
 });
+=======
+        console.log(newUser);
+    });
+});
+
+
+
+>>>>>>> cbdfb3f5a0302692b9a5c9eff712139244b3e004
