@@ -2,16 +2,22 @@
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
-.js div#preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
+
+.loader {
     width: 100%;
     height: 100%;
-    overflow: visible;
-    background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
-  }
+    background-color: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+.loader .inner {
+    width: 100%;
+    height: 100%;
+    background: url(../images/piggy-bank3.gif) center center no-repeat;
+}
   
 /* ------------
 Navbar
@@ -27,7 +33,7 @@ Navbar
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ad1283', endColorstr='#cb60b3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .navbar-toggler-icon{
-    background-image: url("img/burger.png");
+    background-image: url("../images/burger.png");
   }
 /* ------------
 Header
