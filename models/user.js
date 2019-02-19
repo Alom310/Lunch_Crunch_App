@@ -3,10 +3,13 @@ Schema = mongoose.Schema;
 // const Meal = require('./meal');
 
 const UserSchema = new Schema({
+    username: String,
+    password: String,
+    email: String,
     name: String,
     budget: Number,
     streak: Number,
-    // image: String,
+    image: String,
     // meals: [Meal.schema]
 });
 
