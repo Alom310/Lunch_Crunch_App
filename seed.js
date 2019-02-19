@@ -1,7 +1,10 @@
 const db = require('./models');
 
 const dummyUser = {
-    name: 'User',
+    username: `username`,
+    password: `password`,
+    email: `email@gmail.com`,
+    name: `User`,
     budget: 100,
     streak: 2,
     image: '',
@@ -63,7 +66,7 @@ const dummyMeals =
 ];
 
 //reset seed data
-db.User.remove({}, (err,Users) => {
+db.User.deleteMany({}, (err,Users) => {
     console.log('removed all users!');
     if (err) return console.log(err);
     // make a dummyUser
@@ -71,29 +74,27 @@ db.User.remove({}, (err,Users) => {
         if (err) return console.log(err);
         console.log(newUser);
     });
+
+    //add dummyMeals to dummyUser
+    db.User.findOne({name: "User"}, (err, foundUser) => {
+        if(err) return console.log(err);
+        
+        dummyMeals.forEach( mealData => {
+            let meal = new db.Meal({
+                name: mealData.name,
+                date: now,
+                Price: mealData.price,
+                location: mealData.location,
+                image: mealData.image
+            });
+            meal.save( (err,savedMeal) => {
+                if (err) return console.log;
+                
+                console.log(`saved ${savedMeal}`)
+            })
+        })
+    })
 });
 
 
-// //add dummyMeal to dummyUser
-// db.User.findOne({name: "User"}, (err, foundUser) => {
-//     if(err) return console.log(err);
-
-//     //make meals array
-//     db.Meal.create(dummyMeal, (err, newMeal) => {
-//         if(err) return console.log(err);
-
-//         foundUser.meals.push(newMeal);
-//         foundUser.save((err, newUser) => {
-//             if(err) return console.log(err);
-//             console.log(newUser);
-//         })
-//     })
-// })
-
-// //display dummyUser with dummyMeal
-// db.User.find({}, (err, users) => {
-//     if (err) return console.log(err);
-
-//     console.log(JSON.stringify(users));
-// })
 
