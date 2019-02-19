@@ -77,6 +77,13 @@ db.User.deleteMany({}, (err) => {
         //embedding dummyMeals
         dummyMeals.forEach( meal => {
             newUser.meals.push(meal);
+            db.Meal.create(meal, (err, newMeal) => {
+                if (err) return console.log(err);
+            })
         })
-    })
+        console.log(newUser);
+    });
 });
+
+
+
