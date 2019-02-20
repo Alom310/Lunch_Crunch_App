@@ -4,6 +4,7 @@ const db = require('./models')
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -71,11 +72,11 @@ app.post('/api/user', function (req, res) {
     image: req.body.image,
     // meals: [Meal.schema]
   })
-    newUser.save(function(err) {
+    newUser.save(function(err, newUser) {
       if (err)
           res.send(err);
 
-      res.json({ message: 'User created!' });
+      res.json(newUser);
     })
   });
 
@@ -90,7 +91,20 @@ app.delete('/api/user/:id', function (req, res) {
 
 
 
-
+/////////update user
+app.put('/api/user/:id', function(req,res){
+  console.log('User update', req.params);
+  console.log(`the body is ${req.body}`);
+  const userId = req.params.id;
+  db.User.findOneAndUpdate(
+    {_id: userId},
+    req.body,
+    { new: true},
+    (err, updatedUser) => {
+      if(err) {throw err; }
+      res.json(updatedUser);
+  });
+});
 
 
 
