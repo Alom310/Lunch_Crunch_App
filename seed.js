@@ -30,42 +30,42 @@ const dummyMeals =
     },
     {
         name: 'salad',
-        date: now.subtract(2, 'days').format("YYYY MM DD"),
+        date: moment().subtract(1, 'days').format("YYYY MM DD"),
         Price: 11,
         location: 'Chipotle',
         image: ''
     },
     {
         name: 'packed lunch',
-        date: now.subtract(3, 'days').format("YYYY MM DD"),
+        date: moment().subtract(2, 'days').format("YYYY MM DD"),
         Price: 0,
         location: 'n/a',
         image: ''
     },
     {
         name: 'happy meal',
-        date: now.subtract(4, 'days').format("YYYY MM DD"),
+        date: moment().subtract(3, 'days').format("YYYY MM DD"),
         Price: 10,
         location: 'McDonalds',
         image: ''
     },
     {
         name: 'Katsu Sushi Bento',
-        date: now.subtract(5, 'days').format("YYYY MM DD"),
+        date: moment().subtract(4, 'days').format("YYYY MM DD"),
         Price: 13,
         location: 'Tokyo Express',
         image: ''
     },
     {
         name: 'Cheeseburger Mini-Meal',
-        date: now.subtract(6, 'days').format("YYYY MM DD"),
+        date: moment().subtract(5, 'days').format("YYYY MM DD"),
         Price: 4,
         location: 'McDonalds',
         image: ''
     },
     {
         name: `Chick'n Soup`,
-        date: now.subtract(7, 'days').format("YYYY MM DD"),
+        date: moment().subtract(6, 'days').format("YYYY MM DD"),
         Price: 9,
         location: 'Ladle & Leaf',
         image: ''
@@ -88,9 +88,7 @@ db.User.deleteMany({}, (err) => {
                 if (err) return console.log(err);
             })
         })
+        newUser.save();
         console.log(newUser);
-    });
+    })
 });
-
-
-

@@ -69,7 +69,7 @@ app.post('/api/user', function (req, res) {
     budget: req.body.budget,
     streak: req.body.streak,
     image: req.body.image,
-    // meals: [Meal.schema]
+    meals: [Meal.schema]
   })
     newUser.save(function(err) {
       if (err)
