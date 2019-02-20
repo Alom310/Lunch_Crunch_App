@@ -18,6 +18,9 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/dashboard', function dashboard(req, res) {
+  res.sendFile(__dirname + '/views/dashboard.html');
+});
 
 
 /////////////get all users
