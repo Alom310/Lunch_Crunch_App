@@ -18,6 +18,9 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/dashboard', (req, res) => {
+  res.sendFile(__dirname + '/views/dashboard.html');
+ });
 
 
 /////////////get all users
@@ -36,7 +39,7 @@ app.get('/api/user', (req,res) => {
     const userPassword = req.params.password;
     db.User.findOne({username: userId, password: userPassword},(err, foundUser) => {
       if(!foundUser) {
-        return console.log('!!!!!!!!!!!User not found!!!!!!!!!!!')
+        return console.log(req.params, '!!!!!!!!!!!User not found!!!!!!!!!!!')
       }
         res.json(foundUser);
         console.log('User Found', req.params);
@@ -55,7 +58,6 @@ app.post('/api/user', function (req, res) {
     newUser.save(function(err, newUser) {
       if (err)
           res.send(err);
-
       res.json(newUser);
     })
   });

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const Meal = require('./meal');
 
 const UserSchema = new Schema({
-    username: String,
+    username: {type: String, unique:true},
     password: String,
     email: String,
     name: String,

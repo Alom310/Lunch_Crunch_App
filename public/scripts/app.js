@@ -1,4 +1,3 @@
-
     // function hideLoader() {
     //     $('#loading').hide();
     // }
@@ -16,26 +15,43 @@
     });
 
 
-var url = "localhost:3000/api/user/";
+var url = "http://localhost:3000/api/user/";
+
 
     $('form').on('submit', function (e) {
         e.preventDefault();
-    
+
         var userInput =  $('#username').val();
         var passwordInput =  $('#password').val();
-    
+        
+        
         $.ajax({ 
             url: url + userInput + '/' + passwordInput,
             method: 'GET',
             success: function (response) {
                 console.log('User Found');
-                $('#signIn').click(function(){
-                    window.location.href='/dashboard.html';
+                $('#signIn').on('click', function(){
+                    window.location.href='/dashboard';
                  })
             }
-
-
-           
         });
     });
-    
+        
+    $('#create').on('click', function(e) {
+        e.preventDefault();
+        console.log('new user', $(this).serializeArray());
+        $.ajax({
+          method: 'POST',
+          url: url,
+          data: $(this).serializeArray(),
+          success: newUserSuccess,
+        //   error: newUserError
+        });
+      });
+
+      function newUserSuccess(json) {
+        $('#username').val('');
+        $('#password').val('');
+        allBooks.push(json);
+        render();
+      }
