@@ -30,60 +30,27 @@ app.get('/api/user', (req,res) => {
   });
 });
 
-////////////get ONE user
-// app.get('/api/user/:username', function (req, res) {
-//     console.log('Found User', req.params);
-//     let username = req.param.username;
-//     // var password = req.body.password;
-//     db.User.findOne({username: username},(err, data)=>{
-//       if(err){
-//         console.log("User login Not Found");
-//       }
-//       res.json(data);
-//     })
-//   });
-
-  app.get('/api/user/:username', (req,res) => {
-    let userlogin = req.param.username;
-    db.User.findOne({username: userlogin}, (err, foundUser) => {
-        if(err){
-            return console.log(err);
-        }
+////////////login
+  app.get('/api/user/:username/:password', function (req, res) {
+    console.log('User Found', req.params);
+    const userId = req.params.username;
+    const userPassword = req.params.password;
+    db.User.findOne({username: userId, password: userPassword},(err, foundUser) => {
+      if(!foundUser) {
+        return console.log('User not found')
+      }
         res.json(foundUser);
-    })
+    });
   });
 
-//////////login
-// app.get('/user',function(req,res){
-//   var username = req.body.username;
-//   var password = req.body.password;
 
-//   User.findOne({username: username, password: password}), function (err, user) {
-//     if(err) {
-//       console.log(err);
-//       return res.status(500).send()
-//     }
-//     if(!user){
-//       return res.status(404).send();
-//     }
-//     return res.status(200).send();
-//   }
-// })
 
 ///////////create user
 app.post('/api/user', function (req, res) {
   var newUser = new db.User({
     username: req.body.username,
     password: req.body.password,
-<<<<<<< HEAD
-=======
-    email: req.body.email,
-    name: req.body.name,
-    budget: req.body.budget,
-    streak: req.body.streak,
-    image: req.body.image,
-    meals: [Meal.schema]
->>>>>>> 558931b9cefb731a17dd1aad72fa7337f7b7dd3c
+
   })
     newUser.save(function(err, newUser) {
       if (err)
@@ -95,13 +62,12 @@ app.post('/api/user', function (req, res) {
 
 
 
-
 ///////////delete user
 app.delete('/api/user/:id', function (req, res) {
   console.log('User deleted', req.params);
   const userId = req.params.id;
-  db.User.findOneAndDelete({_id: userId},(err, deletedBook) => {
-      res.json(deletedBook);
+  db.User.findOneAndDelete({_id: userId},(err, deletedUser) => {
+      res.json(deletedUser);
   });
 });
 
