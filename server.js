@@ -74,6 +74,15 @@ app.post('/api/user', function (req, res) {
   var newUser = new db.User({
     username: req.body.username,
     password: req.body.password,
+<<<<<<< HEAD
+=======
+    email: req.body.email,
+    name: req.body.name,
+    budget: req.body.budget,
+    streak: req.body.streak,
+    image: req.body.image,
+    meals: [Meal.schema]
+>>>>>>> 558931b9cefb731a17dd1aad72fa7337f7b7dd3c
   })
     newUser.save(function(err) {
       if (err)

@@ -1,4 +1,11 @@
 const db = require('./models');
+const moment = require('moment');
+
+//log out current date to show if moment.js is connected
+let now = moment();
+let today = now.format("YYYY MM DD");
+let yesterday = now.subtract(1, 'days').format("YYYY MM DD");
+console.log(now, today, yesterday);
 
 const dummyUser = {
     username: `username`,
@@ -11,54 +18,54 @@ const dummyUser = {
     meals: []
 }
 
-let now = Date.now();
+
 const dummyMeals =
 [
     {
         name: 'happy meal',
-        date: now,
+        date: moment().format("YYYY MM DD"),
         Price: 10,
         location: 'McDonalds',
         image: ''
     },
     {
         name: 'salad',
-        date: now,
+        date: moment().subtract(1, 'days').format("YYYY MM DD"),
         Price: 11,
         location: 'Chipotle',
         image: ''
     },
     {
         name: 'packed lunch',
-        date: now,
+        date: moment().subtract(2, 'days').format("YYYY MM DD"),
         Price: 0,
         location: 'n/a',
         image: ''
     },
     {
         name: 'happy meal',
-        date: now,
+        date: moment().subtract(3, 'days').format("YYYY MM DD"),
         Price: 10,
         location: 'McDonalds',
         image: ''
     },
     {
         name: 'Katsu Sushi Bento',
-        date: now,
+        date: moment().subtract(4, 'days').format("YYYY MM DD"),
         Price: 13,
         location: 'Tokyo Express',
         image: ''
     },
     {
         name: 'Cheeseburger Mini-Meal',
-        date: now,
+        date: moment().subtract(5, 'days').format("YYYY MM DD"),
         Price: 4,
         location: 'McDonalds',
         image: ''
     },
     {
         name: `Chick'n Soup`,
-        date: now,
+        date: moment().subtract(6, 'days').format("YYYY MM DD"),
         Price: 9,
         location: 'Ladle & Leaf',
         image: ''
@@ -83,8 +90,5 @@ db.User.deleteMany({}, (err) => {
         })
         newUser.save();
         console.log(newUser);
-    });
+    })
 });
-
-
-
