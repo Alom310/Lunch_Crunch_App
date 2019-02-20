@@ -81,6 +81,7 @@ db.User.deleteMany({}, (err) => {
                 if (err) return console.log(err);
             })
         })
+        newUser.save();
         console.log(newUser);
     });
 });
