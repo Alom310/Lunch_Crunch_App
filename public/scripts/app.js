@@ -35,6 +35,9 @@ var url = "http://localhost:3000/api/user/";
                  })
             }
         });
+        $('#signUp').click(function() {
+            $('#modelWindow').modal('show');
+         });
     });
         
     $('#create').on('click', function(e) {
