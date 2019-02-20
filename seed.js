@@ -23,7 +23,7 @@ const dummyMeals =
 [
     {
         name: 'happy meal',
-        date: today,
+        date: moment().format("YYYY MM DD"),
         Price: 10,
         location: 'McDonalds',
         image: ''
