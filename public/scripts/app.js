@@ -14,3 +14,28 @@
             $('.loader').fadeOut(1700);
         });
     });
+
+
+var url = "localhost:3000/api/user/";
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+    
+        var userInput =  $('#username').val();
+        var passwordInput =  $('#password').val();
+    
+        $.ajax({ 
+            url: url + userInput + '/' + passwordInput,
+            method: 'GET',
+            success: function (response) {
+                console.log('User Found');
+                $('#signIn').click(function(){
+                    window.location.href='/dashboard.html';
+                 })
+            }
+
+
+           
+        });
+    });
+    
