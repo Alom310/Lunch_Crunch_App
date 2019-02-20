@@ -32,14 +32,14 @@ app.get('/api/user', (req,res) => {
 
 ////////////login
   app.get('/api/user/:username/:password', function (req, res) {
-    console.log('User Found', req.params);
     const userId = req.params.username;
     const userPassword = req.params.password;
     db.User.findOne({username: userId, password: userPassword},(err, foundUser) => {
       if(!foundUser) {
-        return console.log('User not found')
+        return console.log('!!!!!!!!!!!User not found!!!!!!!!!!!')
       }
         res.json(foundUser);
+        console.log('User Found', req.params);
     });
   });
 
