@@ -14,6 +14,35 @@
         });
     });
 
+$.ajax({
+    method: 'GET',
+    url: 'api/user/',
+    success: dummySuccess,
+    error: dummyError
+});
+
+function dummySuccess (json) {
+    json[0].meals.forEach(function(meal) {
+        $('#transactions').append(
+            `<div class="mealCard" style="width: 18rem;">
+                <div class="card-body">
+                <h2 class="card-title">${meal.name}</h2>
+                <h3 class="card-title">$ ${meal.Price}</h3>
+                <h3 class="card-title">${meal.date}</h3>
+                <div class="btn-group d-flex align-items-center" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-danger delete">Delete</button>
+                </div>
+                </div>
+            </div>`
+        )
+        $('.btn-danger').on('click', function(){
+            $(this).closest('.mealCard').remove()});
+    })
+}
+
+function dummyError() {
+    return console.log("error retrieving dummy data!");
+}
 
 var url = "http://localhost:3000/api/user/";
 var allUsers =[]
@@ -72,7 +101,11 @@ var allUsers =[]
           alert('Create User Error!!!')
       };
 
- 
+
+    
+    
+
+
     /////CREATE MEAL
     var allMeals = [];
     $(`#submitMeal`).on('click', (e) => {
