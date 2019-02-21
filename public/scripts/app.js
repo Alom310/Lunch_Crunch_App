@@ -16,7 +16,7 @@
 
 
 var url = "http://localhost:3000/api/user/";
-
+var allUsers =[]
 
     $('form').on('submit', function (e) {
         e.preventDefault();
@@ -30,33 +30,40 @@ var url = "http://localhost:3000/api/user/";
             method: 'GET',
             success: function (response) {
                 console.log('User Found');
-                $('#signIn').on('click', function(){
-                    window.location.href='/dashboard';
-                 })
+                window.location.href='/dashboard';
             }
         });
         
     });
 
-    // $('#signUp').click(function() {
-    //     $('#modelWindow').modal('show');
-    //  });
         
-    // $('#create').on('click', function(e) {
-    //     e.preventDefault();
-    //     console.log('new user', $(this).serializeArray());
-    //     $.ajax({
-    //       method: 'POST',
-    //       url: url,
-    //       data: $(this).serializeArray(),
-    //       success: newUserSuccess,
-    //     //   error: newUserError
-    //     });
-    //   });
+    $('#create').on('click', function(e) {
+        e.preventDefault();
+        
+        // let user = $("#login").serialize()
 
-    //   function newUserSuccess(json) {
-    //     $('#username').val('');
-    //     $('#password').val('');
-    //     allBooks.push(json);
-    //     render();
-    //   }        
+        let user = {
+            username: $("#username").val(),
+            password: $("#password").val()
+        }
+        console.log('new user', user);
+
+
+
+        $.ajax({
+          method: 'POST',
+          url: url,
+          data: user,
+          dataType: 'json',
+          success: newUserSuccess,
+        //   error: newUserError
+        });
+      });
+
+      function newUserSuccess(json) {
+        $('#username').val('');
+        $('#password').val('');
+        allUsers.push(json);
+        console.log("created user")
+      }        
+   

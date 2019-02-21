@@ -33,6 +33,21 @@ app.get('/api/user', (req,res) => {
   });
 });
 
+///////////create user
+app.post('/api/user', function (req, res) {
+  console.log('HERE IS THE POST REQUEST',req.body)
+  var newUser = new db.User({
+    username: req.body.username,
+    password: req.body.password,
+
+  })
+    newUser.save(function(err, newUser) {
+      if (err)
+          res.send(err);
+      res.json(newUser);
+    })
+  });
+
 ////////////login
   app.get('/api/user/:username/:password', function (req, res) {
     const userId = req.params.username;
@@ -48,19 +63,7 @@ app.get('/api/user', (req,res) => {
 
 
 
-///////////create user
-app.post('/api/user', function (req, res) {
-  var newUser = new db.User({
-    username: req.body.username,
-    password: req.body.password,
 
-  })
-    newUser.save(function(err, newUser) {
-      if (err)
-          res.send(err);
-      res.json(newUser);
-    })
-  });
 
 
 
