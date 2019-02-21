@@ -72,7 +72,49 @@ var allUsers =[]
           alert('Create User Error!!!')
       };
 
+    /////CREATE MEAL
+    var allMeals = [];
+    $(`#submitMeal`).on('click', (e) => {
+        e.preventDefault();
+        let meal = {
+            name: $("#exampleInputMeal").val(),
+            Price: $("#exampleInputPrice").val(),
+            date: $(`#exampleInputDate`).val()
+        }
+        console.log('new meal', meal);
+        $.ajax({
+          method: 'POST',
+          url: `http://localhost:3000/api/user/`,
+          data: meal,
+          dataType: 'json',
+          success:newMealSuccess,
+          error: newMealError
+        });
 
+        function newMealSuccess(json){
+            allMeals.push(json);
+            $('#transactions').append(  
+            `<div class="mealCard" style="width: 18rem;">
+                <div class="card-body">
+                <h2 class="card-title">${meal.name}</h2>
+                <h3 class="card-title">$ ${meal.Price}</h3>
+                <h3 class="card-title">${meal.date}</h3>
+                <div class="btn-group d-flex align-items-center" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+                </div>
+            </div>`
+            )
+        }
+          
+
+        function newMealError(XHR, status, errorThrown) {
+            console.log(`uh oh! Error: ${errorThrown}`);
+            $('body').text('Failed to load food, is the server working?');
+        }
+
+    });
+    
       //////////Update Meals
     //   $.ajax({
     //       method: 'PUT',
