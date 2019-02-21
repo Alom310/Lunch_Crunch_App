@@ -22,10 +22,6 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(__dirname + '/views/dashboard.html');
  });
 
-app.get('/dashboard', (req, res) => {
- res.sendFile(__dirname + '/views/dashboard.html');
-});
-
 
 /////////////get all users
 app.get('/api/user', (req,res) => {
@@ -40,13 +36,24 @@ app.get('/api/user', (req,res) => {
 ///////////Find Users meal by name
 app.get('/api/user/:username/meals/:name', (req,res) => {
   const mealName = req.params.name
-  db.Meal.findOne({name: mealName}, (err, allMeals) => {
+  db.Meal.findOne({name: mealName}, (err, oneUserMeal) => {
     if(err){
         return console.log(err);
     }
-    res.json(allMeals);
+    res.json(oneUserMeal);
   });
 });
+
+////////Find all of Users Meals
+app.get('/api/user/:username/meals', (req,res) => {
+  db.Meal.find({}, (err, allUserMeals) => {
+    if(err){
+        return console.log(err);
+    }
+    res.json(allUserMeals);
+  });
+});
+
 
 ///////Delete User meals
 app.delete('/api/user/:username/meals/:id', function (req, res) {
@@ -109,7 +116,7 @@ app.post('/api/user', function (req, res) {
         res.json(foundUser);
         console.log('User Found', req.params);
     });
-  });
+});
 
 ///////////delete user
 app.delete('/api/user/:id', function (req, res) {

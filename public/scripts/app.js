@@ -72,6 +72,7 @@ var allUsers =[]
           alert('Create User Error!!!')
       };
 
+ 
     /////CREATE MEAL
     var allMeals = [];
     $(`#submitMeal`).on('click', (e) => {
@@ -100,12 +101,12 @@ var allUsers =[]
                 <h3 class="card-title">$ ${meal.Price}</h3>
                 <h3 class="card-title">${meal.date}</h3>
                 <div class="btn-group d-flex align-items-center" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger delete">Delete</button>
                 </div>
                 </div>
             </div>`
-            )
-        }
+            ).on('click', function(){$('.mealCard').remove()})
+        };
           
 
         function newMealError(XHR, status, errorThrown) {
@@ -114,19 +115,9 @@ var allUsers =[]
         }
 
     });
-    
-      //////////Update Meals
-    //   $.ajax({
-    //       method: 'PUT',
-    //       url: ,
-    //       success: ,
 
-    //   });
 
-    //////////Delete Meal
-    //   $.ajax({
-    //       method: 'DELETE',
-    //       url: ,
-    //       success: ,
 
-    //   });
+   
+
+
