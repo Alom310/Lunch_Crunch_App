@@ -50,6 +50,9 @@ app.post('/api/user', function (req, res) {
   var newUser = new db.User({
     username: req.body.username,
     password: req.body.password,
+    email: req.body.email,
+    name: req.body.name,
+    budget: req.body.budget,
   })
     newUser.save(function(err, newUser) {
       if (err)
