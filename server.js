@@ -19,6 +19,10 @@ app.get('/', function homepage(req, res) {
 });
 
 
+app.get('/dashboard', (req, res) => {
+ res.sendFile(__dirname + '/views/dashboard.html');
+});
+
 
 /////////////get all users
 app.get('/api/user', (req,res) => {
