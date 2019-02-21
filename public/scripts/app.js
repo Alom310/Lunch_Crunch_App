@@ -35,11 +35,14 @@ var allUsers =[]
     });
 
     ///////////Create account function 
-    $('#create').on('click', function(e) {
+    $('#signUp').on('click', function(e) {
         e.preventDefault();
         let user = {
-            username: $("#username").val(),
-            password: $("#password").val()
+            username: $("#Form-email").val(),
+            password: $("#Form-pass").val(),
+            email: $("#Form-email").val(),
+            full_name: $("#Form-fullname").val(),
+            budget: $("#Form-budget").val()
         }
         console.log('new user', user);
         $.ajax({
@@ -53,11 +56,15 @@ var allUsers =[]
       });
 
       function newUserSuccess(json) {
-        $('#username').val('');
-        $('#password').val('');
+        $('#Form-email').val('');
+        $('#Form-pass').val('');
+        $("#Form-email").val();
+        $("#Form-fullname").val();
+        $("#Form-budget").val();
         allUsers.push(json);
-        console.log("created user");
+        console.log("created new user");
         alert("New User Created!!!")
+        window.location.href='/dashboard';
       };       
     
       function newUserError () {
