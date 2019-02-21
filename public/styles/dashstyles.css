@@ -48,7 +48,7 @@ Transactions
     margin: 0 auto;
 }
 
-#transactions .card {
+.mealCard {
     background-color: rgba(255,255,255, 0.8);
     margin: 3em auto;
 
