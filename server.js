@@ -85,10 +85,10 @@ app.post('/api/user', function (req, res) {
   });
 
 ///////////delete user
-app.delete('/api/user/:id', function (req, res) {
+app.delete('/api/user/:username', function (req, res) {
   console.log('User deleted', req.params);
-  const userId = req.params.id;
-  db.User.findOneAndDelete({_id: userId},(err, deletedUser) => {
+  const userId = req.params.username;
+  db.User.findOneAndDelete({username: userId},(err, deletedUser) => {
       res.json(deletedUser);
   });
 });
