@@ -33,14 +33,24 @@ app.get('/api/user', (req,res) => {
   });
 });
 
-///////////Find Users meal by name
+///////////Find User's meal by name
 app.get('/api/user/:username/meals/:name', (req,res) => {
   const mealName = req.params.name
-  db.Meal.findOne({name: mealName}, (err, allMeals) => {
+  db.Meal.findOne({name: mealName}, (err, foundMeal) => {
     if(err){
         return console.log(err);
     }
-    res.json(allMeals);
+    res.json(foundMeal);
+  });
+});
+
+/////////Find All User meals
+app.get('/api/user/:username/meals/', (req,res) => {
+  db.Meal.find({}, (err, foundAllUserMeals) => {
+    if(err){
+        return console.log(err);
+    }
+    res.json(foundAllUserMeals);
   });
 });
 
