@@ -105,9 +105,13 @@ var allUsers =[]
                 </div>
                 </div>
             </div>`
-            ).on('click', function(){$('.mealCard').remove()})
-        };
-          
+            )
+            $('.btn-danger').on('click', function(){
+                $(this).closest('.mealCard').remove()})
+        }
+        
+        
+
 
         function newMealError(XHR, status, errorThrown) {
             console.log(`uh oh! Error: ${errorThrown}`);
