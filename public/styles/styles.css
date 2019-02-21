@@ -40,6 +40,7 @@ Header
 ------------- */
 header {
     background-image: url("../images/lcheaderr.jpg");
+    background-attachment: fixed;
     height: 600px;
     background-size: cover;
     color:#F2F1F1;
@@ -207,9 +208,17 @@ header h1 {
   font-size:1.5rem;
 
 }
-header img {
-    max-width: 250px;
-    max-height:300px;
-    float:right;
+header p{
+    font-size:15px;;
 }
+.phoneimg {
+    max-width: 150px;
+    max-height:200px;
+    margin-top:25px;
+    
+}
+.row1 {
+    display: flex;
+    flex-flow: wrap;
+    padding:80px 20px 10px 80px;
 }
