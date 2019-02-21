@@ -33,13 +33,26 @@ app.get('/api/user', (req,res) => {
   });
 });
 
+///////////Find Users meal by name
+app.get('/api/user/:username/meals/:name', (req,res) => {
+  const mealName = req.params.name
+  db.Meal.findOne({name: mealName}, (err, allMeals) => {
+    if(err){
+        return console.log(err);
+    }
+    res.json(allMeals);
+  });
+});
+
 ///////////create user
 app.post('/api/user', function (req, res) {
-  console.log('HERE IS THE POST REQUEST',req.body)
+  console.log('Post Requsting Working',req.body)
   var newUser = new db.User({
     username: req.body.username,
     password: req.body.password,
-
+    email: req.body.email,
+    name: req.body.name,
+    budget: req.body.budget,
   })
     newUser.save(function(err, newUser) {
       if (err)
@@ -61,12 +74,6 @@ app.post('/api/user', function (req, res) {
     });
   });
 
-
-
-
-
-
-
 ///////////delete user
 app.delete('/api/user/:id', function (req, res) {
   console.log('User deleted', req.params);
@@ -75,8 +82,6 @@ app.delete('/api/user/:id', function (req, res) {
       res.json(deletedUser);
   });
 });
-
-
 
 /////////update user
 app.put('/api/user/:id', function(req,res){

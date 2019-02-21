@@ -13,7 +13,6 @@ const dummyUser = {
     email: `email@gmail.com`,
     name: `User`,
     budget: 100,
-    streak: 2,
     image: '',
     meals: []
 }
@@ -73,9 +72,15 @@ const dummyMeals =
 ];
 
 //reset seed data
+db.Meal.deleteMany({}, (err) => {
+    if (err) return console.log(err);
+    console.log('removed all meals!');
+});
+
 db.User.deleteMany({}, (err) => {
     if (err) return console.log(err);
     console.log('removed all users!');
+
     
     // make a dummyUser
     db.User.create(dummyUser, (err,newUser) => {
