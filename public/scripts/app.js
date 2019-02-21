@@ -35,26 +35,28 @@ var url = "http://localhost:3000/api/user/";
                  })
             }
         });
-        $('#signUp').click(function() {
-            $('#modelWindow').modal('show');
-         });
-    });
         
-    $('#create').on('click', function(e) {
-        e.preventDefault();
-        console.log('new user', $(this).serializeArray());
-        $.ajax({
-          method: 'POST',
-          url: url,
-          data: $(this).serializeArray(),
-          success: newUserSuccess,
-        //   error: newUserError
-        });
-      });
+    });
 
-      function newUserSuccess(json) {
-        $('#username').val('');
-        $('#password').val('');
-        allBooks.push(json);
-        render();
-      }
+    // $('#signUp').click(function() {
+    //     $('#modelWindow').modal('show');
+    //  });
+        
+    // $('#create').on('click', function(e) {
+    //     e.preventDefault();
+    //     console.log('new user', $(this).serializeArray());
+    //     $.ajax({
+    //       method: 'POST',
+    //       url: url,
+    //       data: $(this).serializeArray(),
+    //       success: newUserSuccess,
+    //     //   error: newUserError
+    //     });
+    //   });
+
+    //   function newUserSuccess(json) {
+    //     $('#username').val('');
+    //     $('#password').val('');
+    //     allBooks.push(json);
+    //     render();
+    //   }        
