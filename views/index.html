@@ -53,31 +53,103 @@
                     <img src="images/chart2.png" alt="">
                     </div>
                     <div class='col-lg-4 col-sm-12'>
-                            <img src="chart3.png" alt="">
+                            <img src="images/chart3.png" alt="">
                             </div>
     </div>
 
 </section>
+<!-- Modal -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Content-->
+    <div class="modal-content card card-image" style="background-image: url('https://images.unsplash.com/photo-1500042221431-070712d92035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
+    background-size:cover;">
+      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+        <!--Header-->
+        <div class="modal-header text-center pb-4">
+          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+              class="green-text font-weight-bold"><strong> UP</strong></a></h3>
+          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <!--Body-->
+          <div class="md-form mb-5">
+            <input type="email" id="Form-email5" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+          </div>
+
+          <div class="md-form pb-3">
+            <input type="password" id="Form-pass5" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
+            <div class="form-group mt-4">
+              <input class="form-check-input" type="checkbox" id="checkbox624">
+              <label for="checkbox624" class="white-text form-check-label">Accept the<a href="#" class="green-text font-weight-bold">
+                  Terms and Conditions</a></label>
+            </div>
+          </div>
+
+          <!--Grid row-->
+          <div class="row d-flex align-items-center mb-4">
+
+            <!--Grid column-->
+            <div class="text-center mb-3 col-md-12">
+              <button type="button" class="btn btn-dark btn-block btn-rounded z-depth-1">Sign up</button>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+              <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+                  Log in</a></p>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- Modal -->
+      
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Modal -->
+
 <!-- Login -->
 <form id='login'>
     <div class='formbox'>
-        <div>
+        <div> 
           <h1>Get started today!</h1>
           <div>
             <h3>Username</h3>
-            <input id="username" type='name' placeholder="Username" required="">
+            <input id="username" type='name' placeholder="" required="">
           </div>
           <div>
             <h3>password</h3>
-            <input id="password" type='password' placeholder="Password" required="">
+            <input id="password" type='password' placeholder=""required="">
           </div>
             <button type="submit" id="signIn">Sign In</button>
-            <button type="submit" id="create">Create Account</button>
+            <button type="submit" id="create" data-toggle="modal" data-target="#darkModalForm">Create Account</button>
           </div>
         </div>
     </div>
       </form>
-
+      
 <!-- footer -->
 <footer id='foot'>
     <h3>© 2019 Lunch Crunch LCC | All Rights Reserved </h3>
