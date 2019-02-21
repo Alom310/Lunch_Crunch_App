@@ -32,7 +32,11 @@
     <form id="mealForm">
         <div class="form-group">
           <label for="exampleInputMeal">What Did You Have Today?</label>
-          <input type="text" class="form-control" id="exampleInputMeal" aria-describedby="emailHelp" placeholder="Enter Your Meal">
+          <input type="text" class="form-control" id="exampleInputMeal" placeholder="Enter Your Meal">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputDate">Insert Date</label>
+          <input type="text" class="form-control" id="exampleInputDate" placeholder="DD-MM-YY">
         </div>
         <div class="form-group">
           <label for="exampleInputPrice">Price</label>
@@ -40,6 +44,16 @@
         </div>
         <button type="submit" class="btn btn-block btn-primary">Submit</button>
       </form>
+      <div class="mealCard" style="width: 18rem;">
+        <div class="card-body">
+          <h2 class="card-title">Example Meal</h2>
+          <h3 class="card-title">Price</h3>
+          <h3 class="card-text">Date</h3>
+          <div class="btn-group d-flex align-items-center" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
 </section>
        
 
