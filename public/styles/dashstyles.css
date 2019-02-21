@@ -60,6 +60,11 @@ Footer
     color:silver;
     padding-top:15px;
 }
+form {
+    width:50%;
+    background-color:rgba(255, 153, 204, .02);
+
+}
 /* ------------
 Media Query
 ------------- */
