@@ -18,6 +18,9 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/dashboard', (req, res) => {
+  res.sendFile(__dirname + '/views/dashboard.html');
+ });
 
 
 /////////////get all users
@@ -30,85 +33,55 @@ app.get('/api/user', (req,res) => {
   });
 });
 
-////////////get ONE user
-// app.get('/api/user/:username', function (req, res) {
-//     console.log('Found User', req.params);
-//     let username = req.param.username;
-//     // var password = req.body.password;
-//     db.User.findOne({username: username},(err, data)=>{
-//       if(err){
-//         console.log("User login Not Found");
-//       }
-//       res.json(data);
-//     })
-//   });
-
-  app.get('/api/user/:username', (req,res) => {
-    let userlogin = req.param.username;
-    db.User.findOne({username: userlogin}, (err, foundUser) => {
-        if(err){
-            return console.log(err);
-        }
-        res.json(foundUser);
-    })
+///////////Find Users meal by name
+app.get('/api/user/:username/meals/:name', (req,res) => {
+  const mealName = req.params.name
+  db.Meal.findOne({name: mealName}, (err, allMeals) => {
+    if(err){
+        return console.log(err);
+    }
+    res.json(allMeals);
   });
-
-//////////login
-// app.get('/user',function(req,res){
-//   var username = req.body.username;
-//   var password = req.body.password;
-
-//   User.findOne({username: username, password: password}), function (err, user) {
-//     if(err) {
-//       console.log(err);
-//       return res.status(500).send()
-//     }
-//     if(!user){
-//       return res.status(404).send();
-//     }
-//     return res.status(200).send();
-//   }
-// })
+});
 
 ///////////create user
 app.post('/api/user', function (req, res) {
+  console.log('Post Requsting Working',req.body)
   var newUser = new db.User({
     username: req.body.username,
     password: req.body.password,
     email: req.body.email,
     name: req.body.name,
     budget: req.body.budget,
-    streak: req.body.streak,
-    image: req.body.image,
-    meals: [Meal.schema]
   })
     newUser.save(function(err, newUser) {
       if (err)
           res.send(err);
-
       res.json(newUser);
     })
   });
 
-
-
+////////////login
+  app.get('/api/user/:username/:password', function (req, res) {
+    const userId = req.params.username;
+    const userPassword = req.params.password;
+    db.User.findOne({username: userId, password: userPassword},(err, foundUser) => {
+      if(!foundUser) {
+        return console.log(req.params, '!!!!!!!!!!!User not found!!!!!!!!!!!')
+      }
+        res.json(foundUser);
+        console.log('User Found', req.params);
+    });
+  });
 
 ///////////delete user
-app.delete('/api/user/:username', function (req, res) {
+app.delete('/api/user/:id', function (req, res) {
   console.log('User deleted', req.params);
-<<<<<<< HEAD
-  const userId = req.params.username;
-  db.User.findOneAndDelete({username: userId},(err, deletedUser) => {
-      res.json(deletedUser);
-=======
   const userId = req.params.id;
-  db.User.findOneAndDelete({_id: userId},(err, deletedBook) => {
-      res.json(deletedBook);
->>>>>>> 734ea3930c410d091176f43e3680425488d0e241
+  db.User.findOneAndDelete({_id: userId},(err, deletedUser) => {
+      res.json(deletedUser);
   });
 });
-
-
 
 /////////update user
 app.put('/api/user/:id', function(req,res){
