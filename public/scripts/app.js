@@ -17,7 +17,7 @@
 
 var url = "http://localhost:3000/api/user/";
 var allUsers =[]
-
+    //////////login function
     $('form').on('submit', function (e) {
         e.preventDefault();
 
@@ -34,7 +34,7 @@ var allUsers =[]
         });
     });
 
-        
+    ///////////Create account function 
     $('#create').on('click', function(e) {
         e.preventDefault();
         let user = {
@@ -64,3 +64,20 @@ var allUsers =[]
           console.log('CREATE USER ERROR');
           alert('Create User Error!!!')
       };
+
+
+      //////////Update Meals
+    //   $.ajax({
+    //       method: 'PUT',
+    //       url: ,
+    //       success: ,
+
+    //   });
+
+    //////////Delete Meal
+    //   $.ajax({
+    //       method: 'DELETE',
+    //       url: ,
+    //       success: ,
+
+    //   });

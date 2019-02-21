@@ -8,7 +8,6 @@ const UserSchema = new Schema({
     email: String,
     name: String,
     budget: Number,
-    streak: Number,
     image: String,
     meals: [Meal.schema]
 });

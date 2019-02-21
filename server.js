@@ -33,6 +33,17 @@ app.get('/api/user', (req,res) => {
   });
 });
 
+///////////Find Users meal by name
+app.get('/api/user/:username/meals/:name', (req,res) => {
+  const mealName = req.params.name
+  db.Meal.findOne({name: mealName}, (err, allMeals) => {
+    if(err){
+        return console.log(err);
+    }
+    res.json(allMeals);
+  });
+});
+
 ///////////create user
 app.post('/api/user', function (req, res) {
   console.log('Post Requsting Working',req.body)
