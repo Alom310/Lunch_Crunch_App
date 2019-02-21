@@ -9,8 +9,8 @@
    
     $(window).on('load', function() {
         console.log('hello!')
-        $('.loader .inner').fadeOut(1500, function() {
-            $('.loader').fadeOut(1700);
+        $('.loader .inner').fadeOut(1000, function() {
+            $('.loader').fadeOut(1000);
         });
     });
 
@@ -23,8 +23,7 @@ var allUsers =[]
 
         var userInput =  $('#username').val();
         var passwordInput =  $('#password').val();
-        
-        
+
         $.ajax({ 
             url: url + userInput + '/' + passwordInput,
             method: 'GET',
@@ -33,30 +32,23 @@ var allUsers =[]
                 window.location.href='/dashboard';
             }
         });
-        
     });
 
         
     $('#create').on('click', function(e) {
         e.preventDefault();
-        
-        // let user = $("#login").serialize()
-
         let user = {
             username: $("#username").val(),
             password: $("#password").val()
         }
         console.log('new user', user);
-
-
-
         $.ajax({
           method: 'POST',
           url: url,
           data: user,
           dataType: 'json',
-          success: newUserSuccess,
-        //   error: newUserError
+          success:newUserSuccess,
+          error: newUserError
         });
       });
 
@@ -64,6 +56,11 @@ var allUsers =[]
         $('#username').val('');
         $('#password').val('');
         allUsers.push(json);
-        console.log("created user")
-      }        
-   
+        console.log("created user");
+        alert("New User Created!!!")
+      };       
+    
+      function newUserError () {
+          console.log('CREATE USER ERROR');
+          alert('Create User Error!!!')
+      };

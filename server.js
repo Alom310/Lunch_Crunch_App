@@ -35,11 +35,10 @@ app.get('/api/user', (req,res) => {
 
 ///////////create user
 app.post('/api/user', function (req, res) {
-  console.log('HERE IS THE POST REQUEST',req.body)
+  console.log('Post Requsting Working',req.body)
   var newUser = new db.User({
     username: req.body.username,
     password: req.body.password,
-
   })
     newUser.save(function(err, newUser) {
       if (err)
@@ -61,12 +60,6 @@ app.post('/api/user', function (req, res) {
     });
   });
 
-
-
-
-
-
-
 ///////////delete user
 app.delete('/api/user/:id', function (req, res) {
   console.log('User deleted', req.params);
@@ -75,8 +68,6 @@ app.delete('/api/user/:id', function (req, res) {
       res.json(deletedUser);
   });
 });
-
-
 
 /////////update user
 app.put('/api/user/:id', function(req,res){
