@@ -3,7 +3,7 @@ const app = express();
 const db = require('./models')
 
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
@@ -54,6 +54,39 @@ app.get('/api/user/:username/meals/', (req,res) => {
   });
 });
 
+///////Delete User meals
+app.delete('/api/user/:username/meals/:id', function (req, res) {
+  console.log('User deleted', req.params);
+  const mealId = req.params.id;
+  db.Meal.findOneAndDelete({_id: mealId},(err, deletedMeal) => {
+      res.json(deletedMeal);
+  });
+});
+
+/////////create User.meal
+app.post('/api/user/:username/meals/', (req,res) => {
+  
+  db.User.findOne({'username': req.params.username}, (err,foundUser) => {
+    
+    if (err) return console.log(err);
+
+    let newMeal = new db.Meal({
+      name: req.body.name,
+      date: req.body.date,
+      Price: req.body.Price,
+      location: req.body.location,
+      image: req.body.image,
+    });
+    
+    foundUser.meals.push(newMeal);
+
+    foundUser.save((err, newMeal) => {
+      if (err) return console.log(err);
+      res.json(newMeal)
+    });
+  })
+});
+
 ///////////create user
 app.post('/api/user', function (req, res) {
   console.log('Post Requsting Working',req.body)
@@ -64,10 +97,10 @@ app.post('/api/user', function (req, res) {
     name: req.body.name,
     budget: req.body.budget,
   })
-    newUser.save(function(err, newUser) {
+    newUser.save(function(err, newMeal) {
       if (err)
           res.send(err);
-      res.json(newUser);
+      res.json(newMeal);
     })
   });
 
