@@ -223,9 +223,12 @@ header p{
     flex-flow: wrap;
     padding:80px 20px 10px 80px;
 }
+<<<<<<< HEAD
 #stats img {
     max-height:350px;
     max-width: 350px;
     
 }
+=======
+>>>>>>> 34b2b39f90507b277dad83dd5a65d1455d51a09f
 }
