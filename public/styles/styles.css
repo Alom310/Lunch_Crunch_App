@@ -74,7 +74,12 @@ Stats
 #stats img {
     max-height:350px;
     max-width: 350px;
+    transition: transform 1s;
     
+}
+#stats img:hover {
+    transform: scale(1.2);
+    background-color:rgba(0,0,0,.2)
 }
 /* ------------
 Login
@@ -223,12 +228,10 @@ header p{
     flex-flow: wrap;
     padding:80px 20px 10px 80px;
 }
-<<<<<<< HEAD
 #stats img {
-    max-height:350px;
-    max-width: 350px;
+    max-height:300px;
+    max-width: 300px;
+    padding-top: 20px;
+    padding-left:50px;
     
-}
-=======
->>>>>>> 34b2b39f90507b277dad83dd5a65d1455d51a09f
 }
