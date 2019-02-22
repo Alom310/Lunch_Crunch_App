@@ -74,6 +74,7 @@ Stats
 #stats img {
     max-height:350px;
     max-width: 350px;
+    
 }
 /* ------------
 Login
@@ -221,4 +222,10 @@ header p{
     display: flex;
     flex-flow: wrap;
     padding:80px 20px 10px 80px;
+}
+#stats img {
+    max-height:350px;
+    max-width: 350px;
+    
+}
 }
