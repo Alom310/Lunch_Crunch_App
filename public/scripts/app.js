@@ -44,7 +44,7 @@ function dummyError() {
     return console.log("error retrieving dummy data!");
 }
 
-var url = "http://localhost:3000/api/user/";
+var url = "/api/user/";
 var allUsers =[]
     //////////login function
     $('form').on('submit', function (e) {
@@ -118,7 +118,7 @@ var allUsers =[]
         console.log('new meal', meal);
         $.ajax({
           method: 'POST',
-          url: `http://localhost:3000/api/user/`,
+          url: `/api/user/`,
           data: meal,
           dataType: 'json',
           success:newMealSuccess,
