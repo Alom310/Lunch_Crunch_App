@@ -8,6 +8,7 @@ body{
     background-repeat: no-repeat;
     background-size:cover;
     background-attachment: fixed;
+
 }
 
 .loader {
@@ -37,6 +38,7 @@ Navbar
     background: -webkit-linear-gradient(-45deg, rgba(173,18,131,1) 30%,rgba(222,71,172,1) 67%,rgba(203,96,179,1) 87%,rgba(203,96,179,1) 92%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, rgba(173,18,131,1) 30%,rgba(222,71,172,1) 67%,rgba(203,96,179,1) 87%,rgba(203,96,179,1) 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ad1283', endColorstr='#cb60b3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    width:100%;
 }
 .navbar-toggler-icon{
     background-image: url("../images/burger.png");
@@ -46,12 +48,12 @@ Transactions
 ------------- */
 
 #transactions form {
-    background-color: rgba(255,255,255, 0.8);
+    background-color: rgba(255,255,255, 0.5);
     margin: 0 auto;
 }
 
 .mealCard {
-    background-color: rgba(255,255,255, 0.8);
+    background-color: rgba(255,255,255, 0.5);
     margin: 3em auto;
 
 }

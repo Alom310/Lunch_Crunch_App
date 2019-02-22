@@ -1,12 +1,4 @@
-    // function hideLoader() {
-    //     $('#loading').hide();
-    // }
     
-    // $(window).ready(hideLoader);
-    
-    // // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
-    // setTimeout(hideLoader, 60 * 1000);
-   
     $(window).on('load', function() {
         console.log('hello!')
         $('.loader .inner').fadeOut(1000, function() {
@@ -24,7 +16,7 @@ $.ajax({
 function dummySuccess (json) {
     json[0].meals.forEach(function(meal) {
         $('#transactions').append(
-            `<div class="mealCard" style="width: 18rem;">
+            `<div class="mealCard" style="width: 40rem; text-transform: uppercase;">
                 <div class="card-body">
                 <h2 class="card-title">${meal.name}</h2>
                 <h3 class="card-title">$ ${meal.Price}</h3>
@@ -128,7 +120,7 @@ var allUsers =[]
         function newMealSuccess(json){
             allMeals.push(json);
             $('#transactions').append(  
-            `<div class="mealCard" style="width: 18rem;">
+            `<div class="mealCard" style="width: 40rem;">
                 <div class="card-body">
                 <h2 class="card-title">${meal.name}</h2>
                 <h3 class="card-title">$ ${meal.Price}</h3>
